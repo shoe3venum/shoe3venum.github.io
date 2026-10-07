@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Snoopy猫（史努比）经典形象、角色背景、漫画历史及周边收藏指南。探索查理·布朗与史努比的温馨世界，了解花生漫画的历史与衍生作品。">
+    <meta name="keywords" content="Snoopy猫, 史努比, 花生漫画, 查理·布朗, Snoopy, 漫画角色, 史努比周边, 动漫资讯">
+    <title>Snoopy猫-花生漫画经典角色与温馨故事大全</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #5C8C3E; /* 经典史努比绿 */
+            --secondary-color: #E3F2FD; /* 天空蓝背景 */
+            --accent-color: #FFB74D; /* 阳光橙 */
+            --text-main: #333333;
+            --text-light: #666666;
+            --white: #ffffff;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+            --radius: 8px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            background-color: #f9f9f9;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 头部导航 */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: #333;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Hero 区域 */
+        .hero {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, #fff 100%);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: rgba(92, 140, 62, 0.1);
+            color: var(--primary-color);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        /* 角色介绍 Section */
+        .section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 32px;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--primary-color);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            color: var(--text-light);
+        }
+
+        .character-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-img {
+            height: 200px;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+            font-size: 40px;
+            overflow: hidden;
+        }
+        
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-title {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #222;
+        }
+
+        .card-text {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+
+        .card-link {
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        /* 漫画历史 Timeline */
+        .history-section {
+            background-color: var(--white);
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: #e0e0e0;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background-color: var(--white);
+            border: 4px solid var(--primary-color);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .left {
+            left: 0;
+        }
+
+        .right {
+            left: 50%;
+        }
+
+        .left::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            right: 30px;
+            border: medium solid white;
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent white;
+        }
+
+        .right::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            left: 30px;
+            border: medium solid white;
+            border-width: 10px 10px 10px 0;
+            border-color: transparent white transparent transparent;
+        }
+
+        .right::after {
+            left: -10px;
+        }
+
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: white;
+            position: relative;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        .year {
+            font-weight: bold;
+            color: var(--primary-color);
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        /* 常见问题 FAQ */
+        .faq-section {
+            background-color: #f4f6f8;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--white);
+            margin-bottom: 15px;
+            border-radius: var(--radius);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 24px;
+            color: var(--primary-color);
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '-';
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            padding: 0 20px;
+            color: var(--text-light);
+        }
+
+        .faq-item.active .faq-answer {
+            padding-bottom: 20px;
+            max-height: 200px;
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: #2c3e50;
+            color: #bdc3c7;
+            padding: 50px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--white);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #34495e;
+            font-size: 14px;
+        }
+
+        /* 响应式适配 */
+        @media screen and (max-width: 768px) {
+            .nav-wrapper nav {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            }
+
+            .nav-wrapper nav.show {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item::after {
+                left: 21px;
+            }
+
+            .left::before, .right::before {
+                left: 60px;
+                border: medium solid white;
+                border-width: 10px 10px 10px 0;
+                border-color: transparent white transparent transparent;
+            }
+
+            .right {
+                left: 0%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">🐾 Snoopy猫 <span>花生漫画</span></a>
+            <div class="mobile-menu-btn" onclick="toggleMenu()">☰</div>
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="#home" class="active">首页</a></li>
+                    <li><a href="#characters">角色介绍</a></li>
+                    <li><a href="#history">漫画历史</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="container">
+                <h1>史努比：一只改变世界的蓝狗</h1>
+                <p>从1920年代的连环画到全球文化符号，Snoopy猫以其独特的想象力、幽默感和善良，陪伴了无数代读者度过欢乐时光。</p>
+                <div class="hero-tags">
+                    <span class="tag">经典漫画</span>
+                    <span class="tag">温馨故事</span>
+                    <span class="tag">收藏指南</span>
+                    <span class="tag">衍生作品</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 角色介绍 Section -->
+        <section id="characters" class="section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>核心角色档案</h2>
+                    <p>了解花生漫画中的主要成员及其性格特点</p>
+                </div>
+                <div class="character-grid">
+                    <!-- Character 1 -->
+                    <article class="card">
+                        <div class="card-img">
+                            <img src="https://picsum.photos/seed/snoopy1/400/300" alt="Snoopy角色形象">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Snoopy (史努比)</h3>
+                            <p class="card-text">一只想象力极其丰富的米格鲁犬。他喜欢披上披风扮演“王牌飞行员”，经常与红男爵战斗，或者作为“文坛泰斗”撰写小说。他是所有角色的灵魂。</p>
+                            <a href="#" class="card-link">查看更多 &rarr;</a>
+                        </div>
+                    </article>
+
+                    <!-- Character 2 -->
+                    <article class="card">
+                        <div class="card-img">
+                            <img src="https://picsum.photos/seed/charlie/400/300" alt="Charlie Brown角色形象">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Charlie Brown (查理·布朗)</h3>
+                            <p class="card-text">Snoopy的主人，一个善良但总是运气不佳的男孩。他热爱棒球，但总是击不中球。他是漫画中代表普通人脆弱与坚韧的象征。</p>
+                            <a href="#" class="card-link">查看更多 &rarr;</a>
+                        </div>
+                    </article>
+
+                    <!-- Character 3 -->
+                    <article class="card">
+                        <div class="card-img">
+                            <img src="https://picsum.photos/seed/lucy/400/300" alt="Lucy角色形象">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Lucy van Pelt (露西)</h3>
+                            <p class="card-text">查理·布朗的邻居，是个爱指挥人、脾气暴躁的小女孩。她经营着“心理诊所”，虽然嘴硬但内心非常关心朋友。</p>
+                            <a href="#" class="card-link">查看更多 &rarr;</a>
+                        </div>
+                    </article>
+
+                    <!-- Character 4 -->
+                    <article class="card">
+                        <div class="card-img">
+                            <img src="https://picsum.photos/seed/schroeder/400/300" alt="Schroeder角色形象">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Schroeder (舒尔茨)</h3>
+                            <p class="card-text">一位天才钢琴家，他的偶像只有贝多芬。他对Lucy的追求无动于衷，专注于音乐和贝多芬的铜像。</p>
+                            <a href="#" class="card-link">查看更多 &rarr;</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 漫画历史 Section -->
+        <section id="history" class="section history-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>花生漫画的历史足迹</h2>
+                    <p>见证一个文化传奇的诞生与发展</p>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item left">
+                        <div class="timeline-content">
+                            <div class="year">1920年代</div>
+                            <h3>连环画起源</h3>
+                            <p>查尔斯·舒尔茨开始创作名为《Li'l Folks》的连环画，这是史努比和查理·布朗的雏形。</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item right">
+                        <div class="timeline-content">
+                            <div class="year">1950年10月2日</div>
+                            <h3>正式定名</h3>
+                            <p>《Peanuts》（花生漫画）首次在7家报纸同步刊载，标志着一个新时代的开始。</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item left">
+                        <div class="timeline-content">
+                            <div class="year">1965年</div>
+                            <h3>登上时代周刊</h3>
+                            <p>史努比和查理·布朗登上《时代周刊》封面，成为首位登上该杂志的虚构角色。</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item right">
+                        <div class="timeline-content">
+                            <div class="year">至今</div>
+                            <h3>全球文化偶像</h3>
+                            <p>至今仍在全球75个国家发行，拥有超过75亿册的发行量，影响力经久不衰。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 常见问题 FAQ -->
+        <section id="faq" class="section faq-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>关于Snoopy猫的常见问题</h2>
+                    <p>解答您对史努比及其周边的疑问</p>
+                </div>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question">史努比是什么品种的狗？</div>
+                        <div class="faq-answer">
+                            <p>史努比是一只米格鲁犬，也被称为比格犬。在漫画中，它经常被误认为是其他品种，但官方设定明确为米格鲁。</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Snoopy和Charlie Brown的关系是怎样的？</div>
+                        <div class="faq-answer">
+                            <p>他们是最好的朋友和邻居。Charlie Brown是史努比的主人，尽管史努比经常捉弄他，但他们之间有着深厚的情感纽带。</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">哪里可以买到正版Snoopy周边？</div>
+                        <div class="faq-answer">
+                            <p>建议前往官方授权的授权店或大型电商平台的正版旗舰店购买，以确保商品质量和版权合法性。</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Snoopy有哪些经典口头禅？</div>
+                        <div class="faq-answer">
+                            <p>史努比最经典的台词是“Good Grief!”（天哪！），这是查理·布朗常用的感叹词，后来也常被史努比用来表达惊讶。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>关于我们</h3>
+                    <p>本站致力于传播史努比与花生漫画的温馨文化，为喜爱这只蓝狗的粉丝提供资料与交流平台。</p>
+                </div>
+                <div class="footer-col">
+                    <h3>快速链接</h3>
+                    <ul>
+                        <li><a href="#home">返回首页</a></li>
+                        <li><a href="#characters">角色介绍</a></li>
+                        <li><a href="#history">漫画历史</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>相关资源</h3>
+                    <ul>
+                        <li><a href="#">官方漫画阅读</a></li>
+                        <li><a href="#">官方周边商城</a></li>
+                        <li><a href="#">舒尔茨基金会</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Snoopy猫文化展示页. All Rights Reserved. 此页面为演示用途，非官方网站。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 移动端菜单切换逻辑
+        function toggleMenu() {
+            const nav = document.getElementById('main-nav');
+            nav.classList.toggle('show');
+        }
+
+        // FAQ折叠面板逻辑
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', () => {
+                const parent = item.parentElement;
+                parent.classList.toggle('active');
+            });
+        });
+
+        // 简单的导航平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // 移动端点击后自动收起菜单
+                    document.getElementById('main-nav').classList.remove('show');
+                    
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
