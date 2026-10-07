@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>昌河骏马-经典微型车回忆与购车指南</title>
+    <meta name="description" content="昌河骏马是中国早期微型汽车的代表性车型之一。本站提供昌河骏马的详细参数、历史回顾、维修保养指南及二手车市场分析，帮助车友深入了解这款车的历史价值与实用性能。">
+    <meta name="keywords" content="昌河骏马,昌河汽车,微型车,二手车,老车维修,中国汽车历史">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #c0392b; /* 马红，代表活力与经典 */
+            --secondary-color: #2c3e50; /* 深蓝灰，代表稳重 */
+            --accent-color: #f39c12; /* 金色，代表荣誉与品质 */
+            --bg-light: #f4f6f7;
+            --text-main: #333;
+            --text-light: #666;
+            --border-radius: 8px;
+            --container-width: 1200px;
+            --spacing-unit: 1rem;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-light);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* 头部导航 */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--secondary-color);
+            font-size: 1rem;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .nav-btn {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 8px 20px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        .nav-btn:hover {
+            background-color: #a93226;
+            color: #fff;
+        }
+
+        /* Hero 区域 */
+        .hero {
+            position: relative;
+            background: linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.7)), url('https://picsum.photos/seed/car_history/1920/600') no-repeat center center/cover;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .hero-btn:hover {
+            background-color: #e74c3c;
+            transform: translateY(-2px);
+        }
+
+        /* 通用区块样式 */
+        section {
+            padding: 60px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary-color);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+        }
+
+        /* 历史回顾 */
+        .history-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .history-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--primary-color);
+            transition: transform 0.3s;
+        }
+
+        .history-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .history-year {
+            font-size: 0.9rem;
+            color: var(--primary-color);
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .history-card h3 {
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+        }
+
+        .history-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* 车型参数对比 */
+        .specs-section {
+            background-color: #fff;
+        }
+
+        .specs-table-wrapper {
+            overflow-x: auto;
+            background: #fff;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 600px;
+        }
+
+        th, td {
+            padding: 15px 25px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        th {
+            background-color: var(--secondary-color);
+            color: #fff;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        td {
+            color: var(--text-main);
+            font-weight: 500;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover {
+            background-color: #f9f9f9;
+        }
+
+        /* 维修与保养 */
+        .maintenance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .maintenance-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .icon-box {
+            background-color: rgba(192, 57, 43, 0.1);
+            color: var(--primary-color);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .maintenance-content h4 {
+            margin-bottom: 5px;
+            color: var(--secondary-color);
+        }
+
+        .maintenance-content p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* 二手市场与FAQ */
+        .market-section {
+            background-color: var(--secondary-color);
+            color: #fff;
+        }
+
+        .market-section .section-header h2 {
+            color: #fff;
+        }
+
+        .market-section .section-header p {
+            color: #bdc3c7;
+        }
+
+        .faq-item {
+            background: rgba(255,255,255,0.05);
+            margin-bottom: 15px;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 500;
+        }
+
+        .faq-question:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .faq-answer {
+            padding: 0 20px 20px;
+            color: #bdc3c7;
+            font-size: 0.95rem;
+            display: none;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 15px;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--primary-color);
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: #1a252f;
+            color: #7f8c8d;
+            padding: 50px 0 20px;
+            font-size: 0.9rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .nav-wrapper {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            section {
+                padding: 40px 0;
+            }
+
+            .nav-btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <div class="logo">
+                <span>昌河</span>骏马
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#history" class="active">历史回顾</a></li>
+                    <li><a href="#specs">参数配置</a></li>
+                    <li><a href="#maintenance">维修保养</a></li>
+                    <li><a href="#market">二手车市场</a></li>
+                </ul>
+            </nav>
+            <a href="#market" class="nav-btn">查看二手车行情</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>昌河骏马</h1>
+                <p>中国微型汽车发展史上的经典之作。承载了几代人的记忆，凭借皮实耐用、经济实惠的特点，成为了那个时代家庭出行的首选。</p>
+                <a href="#history" class="hero-btn">探索历史故事</a>
+            </div>
+        </section>
+
+        <!-- 历史回顾 Section -->
+        <section id="history">
+            <div class="container">
+                <div class="section-header">
+                    <h2>历史回顾</h2>
+                    <p>见证中国汽车工业的起步与发展</p>
+                </div>
+                <div class="history-grid">
+                    <article class="history-card">
+                        <span class="history-year">1980年代</span>
+                        <h3>诞生背景</h3>
+                        <p>昌河骏马（Changhe Junma）是在中国改革开放初期，为满足城乡物流运输和短途客运需求而开发的微型客车车型。它依托昌河铃木的技术合作背景，迅速在市场上占据了一席之地。</p>
+                    </article>
+                    <article class="history-card">
+                        <span class="history-year">设计理念</span>
+                        <h3>实用至上</h3>
+                        <p>不同于当时追求豪华的外国车型，昌河骏马的设计理念是“实用、耐造”。方正的车身造型、方正的内饰布局，最大化利用了车内空间，同时也便于维修保养，适应了当时中国复杂的路况。</p>
+                    </article>
+                    <article class="history-card">
+                        <span class="history-year">文化符号</span>
+                        <h3>时代印记</h3>
+                        <p>在90年代至21世纪初，昌河骏马不仅是交通工具，更是一种生活方式的象征。无论是作为城乡结合部的“中巴”车，还是作为农村的“致富车”，它都留下了深刻的时代印记。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 参数配置 Section -->
+        <section id="specs" class="specs-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>经典参数</h2>
+                    <p>了解这款经典车型的核心数据</p>
+                </div>
+                <div class="specs-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>项目</th>
+                                <th>参数描述</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>车型级别</td>
+                                <td>微型客车 (MPV雏形)</td>
+                            </tr>
+                            <tr>
+                                <td>长/宽/高</td>
+                                <td>约 3600mm × 1500mm × 1700mm</td>
+                            </tr>
+                            <tr>
+                                <td>轴距</td>
+                                <td>约 2300mm</td>
+                            </tr>
+                            <tr>
+                                <td>整备质量</td>
+                                <td>约 800kg - 900kg</td>
+                            </tr>
+                            <tr>
+                                <td>发动机</td>
+                                <td>通常搭载 1.0L - 1.1L 自然吸气汽油发动机</td>
+                            </tr>
+                            <tr>
+                                <td>最大功率</td>
+                                <td>约 38kW - 50kW (50-65马力)</td>
+                            </tr>
+                            <tr>
+                                <td>驱动方式</td>
+                                <td>前置后驱 (FR) 或 前置前驱 (FF)</td>
+                            </tr>
+                            <tr>
+                                <td>最高时速</td>
+                                <td>约 100km/h - 110km/h</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- 维修保养 Section -->
+        <section id="maintenance">
+            <div class="container">
+                <div class="section-header">
+                    <h2>维修与保养指南</h2>
+                    <p>老车保养的核心要点与注意事项</p>
+                </div>
+                <div class="maintenance-grid">
+                    <div class="maintenance-item">
+                        <div class="icon-box">🛢️</div>
+                        <div class="maintenance-content">
+                            <h4>机油更换</h4>
+                            <p>由于发动机技术相对老旧，建议使用粘度较高的机油，并缩短更换周期（如每3000-5000公里），以保护磨损的部件。</p>
+                        </div>
+                    </div>
+                    <div class="maintenance-item">
+                        <div class="icon-box">🛞</div>
+                        <div class="maintenance-content">
+                            <h4>底盘检查</h4>
+                            <p>老车底盘容易锈蚀，需定期检查悬挂系统、传动轴及刹车管路，防止因锈蚀导致的部件脱落或漏油。</p>
+                        </div>
+                    </div>
+                    <div class="maintenance-item">
+                        <div class="icon-box">⚡</div>
+                        <div class="maintenance-content">
+                            <h4>点火系统</h4>
+                            <p>化油器或老式电喷系统容易受潮，雨季需重点检查点火线圈和火花塞，防止出现启动困难或动力衰减。</p>
+                        </div>
+                    </div>
+                    <div class="maintenance-item">
+                        <div class="icon-box">🔧</div>
+                        <div class="maintenance-content">
+                            <h4>三滤保养</h4>
+                            <p>空气滤清器和机油滤清器是保护发动机的关键，需根据行驶环境（如多尘路段）适当增加清洗频率。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 二手市场与FAQ Section -->
+        <section id="market" class="market-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>二手车市场与常见问题</h2>
+                    <p>购买与收藏昌河骏马的建议</p>
+                </div>
+                <div class="history-grid">
+                    <div class="faq-item">
+                        <div class="faq-question">昌河骏马现在的二手车价格大概是多少？</div>
+                        <div class="faq-answer">
+                            目前昌河骏马属于极度稀有的老款车型，市场存量极少。如果车况完好且手续齐全，通常作为收藏品或特殊用途车辆出售，价格波动较大，需视具体车况而定。
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">老车还能上路行驶吗？</div>
+                        <div class="faq-answer">
+                            这取决于当地的交通法规。部分城市对老旧车辆实施了严格的限行或报废政策，建议在购买前咨询当地车管所，确认是否允许上牌及上路行驶。
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">昌河骏马适合作为收藏品吗？</div>
+                        <div class="faq-answer">
+                            是的。作为改革开放初期的代表性车型，它具有很高的历史研究价值和怀旧意义。对于喜爱中国汽车工业历史的车迷来说，是一份珍贵的藏品。
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">老车油耗高吗？</div>
+                        <div class="faq-answer">
+                            由于排量较小且车重较轻，昌河骏马在城市拥堵路况下的油耗通常较为经济，一般在 6-8L/100km 左右（视具体工况而定）。
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>关于本站</h4>
+                    <p>本站致力于整理中国早期汽车的历史资料与维修信息，为老车爱好者提供一个交流与学习的平台。内容仅供参考，不构成购车建议。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#history">历史回顾</a></li>
+                        <li><a href="#specs">参数配置</a></li>
+                        <li><a href="#maintenance">维修保养</a></li>
+                        <li><a href="#market">二手车市场</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>相关资源</h4>
+                    <ul>
+                        <li><a href="#">中国汽车工业史</a></li>
+                        <li><a href="#">微型客车发展史</a></li>
+                        <li><a href="#">老车维修论坛</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 昌河骏马资料整理站. All Rights Reserved. 本页面为静态展示页面。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 简单的FAQ交互逻辑
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // 关闭其他已打开的项
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // 切换当前项
+                    item.classList.toggle('active');
+                });
+            });
+
+            // 导航栏平滑滚动
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
