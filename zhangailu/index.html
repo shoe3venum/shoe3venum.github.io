@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>障碍路 - 无障碍出行解决方案与通行指南</title>
+    <meta name="description" content="障碍路识别、无障碍设施查询及出行辅助指南。提供坡道、盲道、升降平台等设施的分布信息与使用建议，帮助视障与行动不便人士安全通行。">
+    <meta name="keywords" content="障碍路,无障碍出行,盲道,坡道,升降平台,无障碍设施">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --accent-hover: #2980b9;
+            --bg-light: #f8f9fa;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --border-color: #e0e0e0;
+            --card-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            --spacing-unit: 1rem;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: #fff;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* Header */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-color);
+        }
+
+        .cta-btn {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.5rem 1.25rem;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .cta-btn:hover {
+            background-color: var(--accent-hover);
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 2rem auto;
+        }
+
+        .search-box {
+            background: white;
+            padding: 0.5rem;
+            border-radius: 50px;
+            display: flex;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .search-box input {
+            flex: 1;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            outline: none;
+            border-radius: 50px;
+        }
+
+        .search-box button {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .search-box button:hover {
+            background-color: var(--accent-hover);
+        }
+
+        /* Main Content Grid */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        /* Section Styles */
+        section {
+            margin-bottom: 3rem;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -0.6rem;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+
+        /* Article List */
+        .article-card {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .article-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--card-shadow);
+        }
+
+        .article-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background-color: #eee;
+        }
+
+        .article-content {
+            padding: 1.5rem;
+        }
+
+        .article-meta {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .article-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: var(--primary-color);
+        }
+
+        .article-excerpt {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .read-more {
+            color: var(--accent-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* Sidebar */
+        .sidebar-widget {
+            background-color: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .sidebar-title {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            background-color: #e9ecef;
+            color: var(--text-secondary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+        }
+
+        .tag:hover {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        .checklist li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .checklist li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* Feature Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 2rem 1rem;
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .feature-title {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .feature-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Guide Steps */
+        .guide-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .step {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .step-num {
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .step-content h4 {
+            margin-bottom: 0.25rem;
+        }
+
+        .step-content p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* FAQ Section */
+        .faq-item {
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 0;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .faq-answer {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 3rem 0;
+            margin-top: 4rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-col h3 {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col a {
+            color: #bdc3c7;
+            font-size: 0.9rem;
+        }
+
+        .footer-col a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #bdc3c7;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 1rem 0;
+            }
+            nav ul {
+                gap: 1rem;
+                margin: 1rem 0;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .search-box {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            .search-box input, .search-box button {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-inner">
+        <div class="logo">
+            <span>⚡</span> 障碍路通行助手
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">首页</a></li>
+                <li><a href="#guide">出行指南</a></li>
+                <li><a href="#facilities">设施查询</a></li>
+                <li><a href="#news">最新资讯</a></li>
+                <li><a href="#contact" class="cta-btn">反馈问题</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="container">
+        <h1>解决出行中的“障碍路”难题</h1>
+        <p>无论您是视障人士还是行动不便者，我们提供精准的障碍路识别、无障碍设施导航与安全通行建议，让每一步都更安心。</p>
+        <div class="search-box">
+            <input type="text" placeholder="输入您要前往的地点或路段名称...">
+            <button type="button">搜索</button>
+        </div>
+    </div>
+</section>
+
+<main class="container">
+    <div class="main-grid">
+        <!-- Left Column -->
+        <div class="content-area">
+            
+            <!-- Guide Section -->
+            <section id="guide">
+                <div class="section-header">
+                    <h2 class="section-title">视障人士出行指南</h2>
+                    <a href="#" style="font-size: 0.9rem; color: var(--accent-color);">查看完整教程 &rarr;</a>
+                </div>
+                <div class="guide-steps">
+                    <div class="step">
+                        <div class="step-num">1</div>
+                        <div class="step-content">
+                            <h4>确认入口位置</h4>
+                            <p>寻找盲道起点或无障碍坡道入口。注意观察地面是否有“起点”或“入口”标识。</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-num">2</div>
+                        <div class="step-content">
+                            <h4>识别路面变化</h4>
+                            <p>听到盲道由条纹状变为圆点状时，说明前方遇到障碍路（如井盖、电线杆），请停止前行并绕行。</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-num">3</div>
+                        <div class="step-content">
+                            <h4>使用辅助工具</h4>
+                            <p>在遇到无法通行的障碍路时，请使用盲杖敲击地面确认周围环境，或寻求路人协助。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Facilities Section -->
+            <section id="facilities">
+                <div class="section-header">
+                    <h2 class="section-title">常见无障碍设施</h2>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">🚶</div>
+                        <div class="feature-title">盲道系统</div>
+                        <div class="feature-desc">引导视障人士行走的专用通道，由条形引导砖和圆点提示砖组成。</div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🛗</div>
+                        <div class="feature-title">升降平台</div>
+                        <div class="feature-desc">解决垂直高差问题的设备，适用于地铁站、商场等场所。</div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">♿</div>
+                        <div class="feature-title">无障碍坡道</div>
+                        <div class="feature-desc">符合标准坡度的斜坡，方便轮椅使用者通过门槛或台阶。</div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🚻</div>
+                        <div class="feature-title">无障碍卫生间</div>
+                        <div class="feature-desc">配备抓杆、无障碍洗手台及紧急呼叫按钮的专用空间。</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Articles Section -->
+            <section id="news">
+                <div class="section-header">
+                    <h2 class="section-title">相关资讯与案例</h2>
+                </div>
+                
+                <article class="article-card">
+                    <img src="https://picsum.photos/seed/road1/800/400" alt="盲道铺设示意图" class="article-img">
+                    <div class="article-content">
+                        <div class="article-meta">2023-10-24 · 设施建设</div>
+                        <h3 class="article-title">城市盲道建设的新标准与常见盲道障碍路解析</h3>
+                        <p class="article-excerpt">随着城市无障碍建设的推进，越来越多的盲道投入使用。然而，井盖缺失、电线杆遮挡等“隐形障碍路”依然存在。本文详细解析了如何识别这些隐患。</p>
+                        <a href="#" class="read-more">阅读全文 &rarr;</a>
+                    </div>
+                </article>
+
+                <article class="article-card">
+                    <img src="https://picsum.photos/seed/road2/800/400" alt="轮椅使用者通过坡道" class="article-img">
+                    <div class="article-content">
+                        <div class="article-meta">2023-10-18 · 出行技巧</div>
+                        <h3 class="article-title">轮椅使用者如何安全跨越台阶与障碍路</h3>
+                        <p class="article-excerpt">对于行动不便者来说，跨越台阶是巨大的挑战。掌握正确使用无障碍坡道和折叠式升降平台的方法，能大大提升出行效率和安全性。</p>
+                        <a href="#" class="read-more">阅读全文 &rarr;</a>
+                    </div>
+                </article>
+
+                <article class="article-card">
+                    <img src="https://picsum.photos/seed/road3/800/400" alt="社区无障碍改造" class="article-img">
+                    <div class="article-content">
+                        <div class="article-meta">2023-10-12 · 社区服务</div>
+                        <h3 class="article-title">老旧小区改造中的无障碍路改造案例分析</h3>
+                        <p class="article-excerpt">老旧小区由于地形复杂，往往存在大量障碍路。通过加装扶手、拓宽门洞和铺设平整路面，许多社区成功实现了适老化改造。</p>
+                        <a href="#" class="read-more">阅读全文 &rarr;</a>
+                    </div>
+                </article>
+            </section>
+        </div>
+
+        <!-- Right Column Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-widget">
+                <h3 class="sidebar-title">热门分类</h3>
+                <div class="tag-cloud">
+                    <a href="#" class="tag">盲道</a>
+                    <a href="#" class="tag">坡道</a>
+                    <a href="#" class="tag">电梯</a>
+                    <a href="#" class="tag">卫生间</a>
+                    <a href="#" class="tag">地铁站</a>
+                    <a href="#" class="tag">医院</a>
+                    <a href="#" class="tag">学校</a>
+                    <a href="#" class="tag">商场</a>
+                </div>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3 class="sidebar-title">出行安全检查清单</h3>
+                <ul class="checklist">
+                    <li>确认盲道是否中断或被占用</li>
+                    <li>检查坡道坡度是否在安全范围内</li>
+                    <li>确认电梯按钮高度是否适合轮椅使用者</li>
+                    <li>测试紧急呼叫按钮是否有效</li>
+                    <li>携带必要的辅助工具（如盲杖、折叠凳）</li>
+                </ul>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3 class="sidebar-title">常见问题 (FAQ)</h3>
+                <div class="faq-item">
+                    <div class="faq-question">遇到障碍路该找谁求助？ <span>+</span></div>
+                    <div class="faq-answer">您可以拨打当地服务热线或直接寻求附近的工作人员、保安或路人协助。建议随身携带写有紧急联系人的卡片。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">为什么有些盲道会突然消失？ <span>+</span></div>
+                    <div class="faq-answer">盲道中断通常是因为施工、设施安装（如电线杆、井盖）或规划不当。遇到这种情况应停止前进，寻找替代路线。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">无障碍设施损坏如何反馈？ <span>+</span></div>
+                    <div class="faq-answer">您可以通过本网站的“反馈问题”栏目提交具体位置和照片，我们会定期整理并反馈给相关部门。</div>
+                </div>
+            </div>
+        </aside>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3>障碍路通行助手</h3>
+                <p style="color: #bdc3c7; font-size: 0.9rem; margin-top: 1rem;">
+                    致力于为视障人士和行动不便者提供最准确、最实用的无障碍出行信息与服务。
+                </p>
+            </div>
+            <div class="footer-col">
+                <h3>快速导航</h3>
+                <ul>
+                    <li><a href="#">关于我们</a></li>
+                    <li><a href="#">设施地图</a></li>
+                    <li><a href="#">使用帮助</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>联系方式</h3>
+                <ul>
+                    <li><a href="#">support@barrierfree.com</a></li>
+                    <li><a href="#">400-123-4567</a></li>
+                    <li><a href="#">北京市朝阳区无障碍服务中心</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2023 障碍路通行助手 版权所有.
+        </div>
+    </div>
+</footer>
+
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+<script>
+    // Simple FAQ Toggle Logic
+    document.querySelectorAll('.faq-question').forEach(item => {
+        item.addEventListener('click', () => {
+            const parent = item.parentElement;
+            parent.classList.toggle('active');
+            // Toggle plus/minus icon logic if needed, simplified here
+        });
+    });
+
+    // Mobile Menu Toggle (Simple implementation)
+    const navToggle = document.querySelector('nav .cta-btn');
+    if(navToggle) {
+        // Just a placeholder interaction to show JS is active
+        navToggle.addEventListener('click', () => {
+            alert('感谢您的反馈！我们会尽快处理您提供的关于障碍路的信息。');
+        });
+    }
+</script>
+
+</body>
+  </html>
