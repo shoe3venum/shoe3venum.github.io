@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="80s下载 - 提供复古风格软件、怀旧游戏及经典系统工具的绿色下载服务，安全无毒，纯净无广告。">
+    <meta name="keywords" content="80s下载,复古软件,怀旧游戏,绿色软件,经典工具">
+    <title>80s下载-复古经典软件与怀旧游戏资源站</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #4a4a4a;
+            --accent-color: #c0392b;
+            --bg-color: #f4f4f4;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --border-radius: 8px;
+            --shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        .search-box {
+            position: relative;
+        }
+
+        .search-box input {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            outline: none;
+            width: 200px;
+            transition: width 0.3s;
+        }
+
+        .search-box input:focus {
+            width: 250px;
+            border-color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2c3e50 0%, #000000 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .hero-tags span {
+            display: inline-block;
+            background: rgba(255,255,255,0.1);
+            padding: 5px 12px;
+            border-radius: 20px;
+            margin: 0 5px;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+
+        .hero-tags span:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .section-title h2 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .section-title a {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Grid Layout */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        /* Card Style */
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.12);
+        }
+
+        .card-img {
+            height: 160px;
+            background-color: #ddd;
+            position: relative;
+        }
+
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--accent-color);
+            color: white;
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        .card-body {
+            padding: 15px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: var(--text-main);
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+            flex-grow: 1;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: #999;
+            margin-bottom: 15px;
+        }
+
+        .btn-download {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        .btn-download:hover {
+            background-color: #333;
+        }
+
+        /* Sidebar */
+        .content-wrapper {
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .content-wrapper {
+                grid-template-columns: 1fr;
+            }
+            .header-container {
+                flex-direction: column;
+                height: auto;
+                padding: 15px;
+            }
+            nav ul {
+                margin: 10px 0;
+                gap: 15px;
+                font-size: 0.9rem;
+            }
+            .search-box input {
+                width: 100%;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* Sidebar Widgets */
+        .sidebar-widget {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 20px;
+        }
+
+        .sidebar-widget h3 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--accent-color);
+            padding-left: 10px;
+        }
+
+        .list-group {
+            list-style: none;
+        }
+
+        .list-group li {
+            border-bottom: 1px solid #eee;
+            padding: 10px 0;
+        }
+
+        .list-group li:last-child {
+            border-bottom: none;
+        }
+
+        .list-group a {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+        }
+
+        .list-group a span.count {
+            background: #eee;
+            padding: 2px 6px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: #ccc;
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            font-size: 0.9rem;
+        }
+
+        /* Ad placeholder */
+        .ad-banner {
+            width: 100%;
+            height: 90px;
+            background-color: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">
+                <span>80s</span>下载
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#">软件大全</a></li>
+                    <li><a href="#">怀旧游戏</a></li>
+                    <li><a href="#">系统工具</a></li>
+                    <li><a href="#">壁纸图库</a></li>
+                </ul>
+            </nav>
+            <div class="search-box">
+                <input type="text" placeholder="搜索软件、游戏...">
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>重温经典，纯净下载</h1>
+        <p>汇集Windows 95-XP时代的经典软件、怀旧游戏及实用工具，无广告、无捆绑，纯净绿色。</p>
+        <div class="hero-tags">
+            <span>Win98游戏</span>
+            <span>经典杀毒</span>
+            <span>办公软件</span>
+            <span>实用工具</span>
+        </div>
+    </section>
+
+    <main class="content-wrapper">
+        <!-- Main Column -->
+        <section class="main-column">
+            <div class="section-title">
+                <h2>热门软件推荐</h2>
+                <a href="#">查看更多 ></a>
+            </div>
+
+            <div class="grid">
+                <!-- Item 1 -->
+                <article class="card">
+                    <div class="card-img">
+                        <img src="https://picsum.photos/seed/win98/300/160" alt="WinRAR 3.11">
+                        <span class="card-badge">经典版</span>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">WinRAR 3.11 绿色版</h3>
+                        <p class="card-desc">Windows 95/98时代的压缩之王，支持RAR和ZIP格式，体积小巧，运行极快。</p>
+                        <div class="card-meta">
+                            <span>大小: 450KB</span>
+                            <span>语言: 简体中文</span>
+                        </div>
+                        <a href="#" class="btn-download">立即下载</a>
+                    </div>
+                </article>
+
+                <!-- Item 2 -->
+                <article class="card">
+                    <div class="card-img">
+                        <img src="https://picsum.photos/seed/foxmail/300/160" alt="Foxmail">
+                        <span class="card-badge">实用</span>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Foxmail 6.5 客户端</h3>
+                        <p class="card-desc">经典邮件客户端，界面简洁，支持多帐号管理，曾是无数网友的首选邮件工具。</p>
+                        <div class="card-meta">
+                            <span>大小: 8.2MB</span>
+                            <span>语言: 简体中文</span>
+                        </div>
+                        <a href="#" class="btn-download">立即下载</a>
+                    </div>
+                </article>
+
+                <!-- Item 3 -->
+                <article class="card">
+                    <div class="card-img">
+                        <img src="https://picsum.photos/seed/note/300/160" alt="Notepad++">
+                        <span class="card-badge">开发</span>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Notepad++ 5.9.3</h3>
+                        <p class="card-desc">轻量级代码编辑器，支持高亮显示，体积小，启动速度快，适合程序员备用。</p>
+                        <div class="card-meta">
+                            <span>大小: 1.8MB</span>
+                            <span>语言: 简体中文</span>
+                        </div>
+                        <a href="#" class="btn-download">立即下载</a>
+                    </div>
+                </article>
+
+                <!-- Item 4 -->
+                <article class="card">
+                    <div class="card-img">
+                        <img src="https://picsum.photos/seed/ie/300/160" alt="IE 6.0">
+                        <span class="card-badge">系统</span>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Internet Explorer 6.0</h3>
+                        <p class="card-desc">微软经典的Web浏览器，承载了无数人的上网记忆，适合测试旧网页。</p>
+                        <div class="card-meta">
+                            <span>大小: 22MB</span>
+                            <span>语言: 简体中文</span>
+                        </div>
+                        <a href="#" class="btn-download">立即下载</a>
+                    </div>
+                </article>
+
+                <!-- Item 5 -->
+                <article class="card">
+                    <div class="card-img">
+                        <img src="https://picsum.photos/seed/ps/300/160" alt="PhotoShop 7.0">
+                        <span class="card-badge">设计</span>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Adobe Photoshop 7.0</h3>
+                        <p class="card-desc">PS历史上的里程碑版本，界面经典，功能强大，适合学习PS基础操作。</p>
+                        <div class="card-meta">
+                            <span>大小: 180MB</span>
+                            <span>语言: 简体中文</span>
+                        </div>
+                        <a href="#" class="btn-download">立即下载</a>
+                    </div>
+                </article>
+
+                <!-- Item 6 -->
+                <article class="card">
+                    <div class="card-img">
+                        <img src="https://picsum.photos/seed/qq/300/160" alt="QQ 2003">
+                        <span class="card-badge">社交</span>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">腾讯 QQ 2003 正式版</h3>
+                        <p class="card-desc">QQ发展的早期形态，界面朴素，功能基础，是许多80后90后初识网络的见证。</p>
+                        <div class="card-meta">
+                            <span>大小: 15MB</span>
+                            <span>语言: 简体中文</span>
+                        </div>
+                        <a href="#" class="btn-download">立即下载</a>
+                    </div>
+                </article>
+            </div>
+
+            <div class="ad-banner">
+                广告位：复古壁纸与主题专区
+            </div>
+
+            <div class="section-title">
+                <h2>经典怀旧游戏</h2>
+                <a href="#">更多游戏 ></a>
+            </div>
+
+            <div class="grid">
+                <article class="card">
+                    <div class="card-img">
+                        <img src="https://picsum.photos/seed/game1/300/160" alt="扫雷">
+                        <span class="card-badge">益智</span>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Windows 经典扫雷</h3>
+                        <p class="card-desc">Windows 95自带游戏，考验逻辑推理能力，无需安装，即开即玩。</p>
+                        <div class="card-meta">
+                            <span>大小: 1.2MB</span>
+                            <span>平台: Windows</span>
+                        </div>
+                        <a href="#" class="btn-download">下载</a>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="card-img">
+                        <img src="https://picsum.photos/seed/game2/300/160" alt="红警">
+                        <span class="card-badge">策略</span>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">红色警戒 1.0</h3>
+                        <p class="card-desc">西木工作室的经典RTS游戏，指挥官的荣耀，保卫苏军或盟军的荣耀。</p>
+                        <div class="card-meta">
+                            <span>大小: 200MB</span>
+                            <span>平台: PC</span>
+                        </div>
+                        <a href="#" class="btn-download">下载</a>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="card-img">
+                        <img src="https://picsum.photos/seed/game3/300/160" alt="仙剑">
+                        <span class="card-badge">角色</span>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">仙剑奇侠传 98柔情版</h3>
+                        <p class="card-desc">国产RPG巅峰之作，李逍遥与赵灵儿的感人故事，DOS版经典复刻。</p>
+                        <div class="card-meta">
+                            <span>大小: 400MB</span>
+                            <span>平台: DOS/Win</span>
+                        </div>
+                        <a href="#" class="btn-download">下载</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Sidebar Column -->
+        <aside class="sidebar">
+            <div class="sidebar-widget">
+                <h3>软件分类</h3>
+                <ul class="list-group">
+                    <li><a href="#">系统工具 <span class="count">128</span></a></li>
+                    <li><a href="#">办公软件 <span class="count">86</span></a></li>
+                    <li><a href="#">多媒体 <span class="count">54</span></a></li>
+                    <li><a href="#">网络通讯 <span class="count">92</span></a></li>
+                    <li><a href="#">安全杀毒 <span class="count">45</span></a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3>本周热门</h3>
+                <ul class="list-group">
+                    <li><a href="#">Winamp 5.66 皮肤包</a></li>
+                    <li><a href="#">ACDSee 3.1 图像浏览</a></li>
+                    <li><a href="#">FlashGet 1.6 下载器</a></li>
+                    <li><a href="#">超级兔子优化王</a></li>
+                    <li><a href="#">金山毒霸 2003</a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3>下载统计</h3>
+                <div style="font-size: 0.9rem; color: #666; line-height: 2;">
+                    今日下载: <strong style="color:#333">12,450</strong><br>
+                    本周下载: <strong style="color:#333">85,230</strong><br>
+                    累计下载: <strong style="color:#333">1,024,560</strong>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>关于 80s下载</h4>
+                <p style="font-size: 0.9rem; color: #999;">致力于为用户提供经典、绿色、无毒的怀旧软件资源。所有软件均经过人工检测，确保安全可靠。</p>
+            </div>
+            <div class="footer-col">
+                <h4>快速导航</h4>
+                <ul>
+                    <li><a href="#">软件排行榜</a></li>
+                    <li><a href="#">游戏下载</a></li>
+                    <li><a href="#">壁纸图库</a></li>
+                    <li><a href="#">使用帮助</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>联系方式</h4>
+                <ul>
+                    <li><a href="#">站长邮箱</a></li>
+                    <li><a href="#">提交软件</a></li>
+                    <li><a href="#">意见反馈</a></li>
+                    <li><a href="#">免责声明</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 80s下载. All Rights Reserved. 仅供怀旧与学习交流使用。</p>
+        </div>
+    </footer>
+
+</body>
+</html>
